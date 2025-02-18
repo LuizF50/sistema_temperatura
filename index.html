@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Monitoramento Ambiental</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Sistema de Monitoramento Ambiental</h1>
+            <p>Baseado no projeto Biosfera 2</p>
+        </div>
+
+        <div class="dashboard">
+            <!-- Sensor de Temperatura -->
+            <div class="sensor-card">
+                <h2 class="sensor-title">Temperatura</h2>
+                <div class="data-input">
+                    <div class="input-group">
+                        <label for="temp-time">Horário (HH:MM)</label>
+                        <input type="time" id="temp-time" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="temp-value">Temperatura (°C)</label>
+                        <input type="number" id="temp-value" step="0.1" required>
+                    </div>
+                    <button onclick="adicionarTemperatura()">Adicionar Medição</button>
+                </div>
+                <div class="chart-container">
+                    <canvas id="tempChart"></canvas>
+                </div>
+                <table class="data-table" id="temp-table">
+                    <thead>
+                        <tr>
+                            <th>Horário</th>
+                            <th>Temperatura (°C)</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <!-- Sensor de Umidade -->
+            <div class="sensor-card">
+                <h2 class="sensor-title">Umidade</h2>
+                <div class="data-input">
+                    <div class="input-group">
+                        <label for="humid-time">Horário (HH:MM)</label>
+                        <input type="time" id="humid-time" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="humid-value">Umidade (%)</label>
+                        <input type="number" id="humid-value" step="0.1" required>
+                    </div>
+                    <button onclick="adicionarUmidade()">Adicionar Medição</button>
+                </div>
+                <div class="chart-container">
+                    <canvas id="humidChart"></canvas>
+                </div>
+                <table class="data-table" id="humid-table">
+                    <thead>
+                        <tr>
+                            <th>Horário</th>
+                            <th>Umidade (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <!-- Sensor de CO2 -->
+            <div class="sensor-card">
+                <h2 class="sensor-title">CO2</h2>
+                <div class="data-input">
+                    <div class="input-group">
+                        <label for="co2-time">Horário (HH:MM)</label>
+                        <input type="time" id="co2-time" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="co2-value">CO2 (ppm)</label>
+                        <input type="number" id="co2-value" step="0.1" required>
+                    </div>
+                    <button onclick="adicionarCO2()">Adicionar Medição</button>
+                </div>
+                <div class="chart-container">
+                    <canvas id="co2Chart"></canvas>
+                </div>
+                <table class="data-table" id="co2-table">
+                    <thead>
+                        <tr>
+                            <th>Horário</th>
+                            <th>CO2 (ppm)</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
